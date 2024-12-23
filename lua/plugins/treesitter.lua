@@ -3,4 +3,4 @@ local function _1_()
   local ts = require("nvim-treesitter.configs")
   return ts.setup({ensure_installed = {"lua", "luadoc", "printf", "vim", "vimdoc", "fennel", "odin"}, highlight = {enable = true, use_languagetree = true}, indent = {enable = true}})
 end
-return {"nvim-treesitter/nvim-treesitter", config = _1_}
+return {"nvim-treesitter/nvim-treesitter", event = "BufRead", config = _1_}

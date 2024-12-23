@@ -1,4 +1,5 @@
 {1 :nvim-treesitter/nvim-treesitter
+   :event :BufRead
    :config
    (fn []
      (let [ts (require :nvim-treesitter.configs)]
