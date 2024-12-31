@@ -1,4 +1,6 @@
-# nvim config 
+# nvim config
+
+![image](https://github.com/user-attachments/assets/688c4d67-58c7-46c3-957c-1e8c8785fb8f)
 
 neovim configured to get out of your way
 
