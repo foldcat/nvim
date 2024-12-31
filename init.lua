@@ -24,7 +24,34 @@ local lazy_config = require("configs.lazy")
 require("lazy").setup({
   {"Olical/nfnl", ft="fennel"},
   { import = "plugins" },
-}, {defaults = {lazy = true}})
+}, {
+    defaults = {lazy = true},
+    ui = {
+      icons = {
+      cmd = "cmd ",
+      config = "cfg",
+      event = "event ",
+      favorite = "fav ",
+      ft = "ft ",
+      init = "init ",
+      import = "import ",
+      keys = "keys ",
+      lazy = " ",
+      loaded = "*",
+      not_loaded = "o",
+      plugin = "plugin ",
+      runtime = "rt ",
+      require = "req ",
+      source = "src ",
+      start = "start ",
+      task = "task ",
+      list = {
+        "*",
+        ">",
+        "#",
+        "-",
+      }},}
+  })
 
 vim.schedule(function()
 	require("init")

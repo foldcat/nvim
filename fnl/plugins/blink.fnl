@@ -19,7 +19,11 @@
          :appearance {:use_nvim_cmp_as_default true
                       :nerd_font_variant :mono}
 
-         :completion {:ghost_text {:enabled true}}
+         :completion {:ghost_text {:enabled true}
+                      :menu 
+                      {:draw 
+                        {:columns [{1 :label 2 :label_description :gap 1}
+                                   [:kind]]}}}
 
          :snippets 
          {:expand (fn [snippet] 

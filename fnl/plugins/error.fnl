@@ -6,4 +6,4 @@
    (fn []
      (let [tid (require :tiny-inline-diagnostic)]
        ;(set vim.opt.updatetime 100)
-       (tid.setup)))}
+       (tid.setup {:virt_texts {:priority 99999}})))}
