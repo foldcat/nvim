@@ -23,4 +23,4 @@ local function _3_()
   map({"n", "v"}, "<leader>ca", vim.lsp.buf.code_action)
   return map("n", "gr", vim.lsp.buf.references)
 end
-return {{"williamboman/mason.nvim", opts = {}}, {"neovim/nvim-lspconfig", event = {"BufRead", "VeryLazy"}, dependencies = {{"AstroNvim/astrolsp", opts = {}}, {"williamboman/mason-lspconfig.nvim", dependencies = "williamboman/mason.nvim", opts = _1_}}, config = _3_}}
+return {{"williamboman/mason.nvim", opts = {}}, {"neovim/nvim-lspconfig", event = {"BufRead", "VeryLazy"}, dependencies = {{"AstroNvim/astrolsp", opts = {config = {fennel_language_server = {settings = {fennel = {diagnostics = {globals = {"vim"}, workspace = {library = vim.api.nvim_list_runtime_paths()}}}}}}}}, {"williamboman/mason-lspconfig.nvim", dependencies = "williamboman/mason.nvim", opts = _1_}}, config = _3_}}
