@@ -26,17 +26,10 @@
                                    [:kind]]}}}
 
          :snippets 
-         {:expand (fn [snippet] 
-                    (let [lsnip (require :luasnip)] 
-                      (lsnip.lsp_expand snippet)))
-          :active (fn [filter]
-                    (let [lsnip (require :luasnip)]
-                      (if (and filter filter.direction)
-                        (lsnip.jumpable filter.direction)
-                        (lsnip.in_snippet))))}
+         {:preset :luasnip}
 
          :sources
-         {:default [:lsp :path :snippets :buffer :conjure :ripgrep :luasnip]
+         {:default [:lsp :path :snippets :buffer :conjure :ripgrep]
 
           :cmdline {}
 

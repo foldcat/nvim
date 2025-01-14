@@ -2,4 +2,4 @@
 local function _1_()
   return vim.cmd("colorscheme oxocarbon")
 end
-return {"nyoom-engineering/oxocarbon.nvim", priority = 1000, config = _1_, lazy = false}
+return {{"nyoom-engineering/oxocarbon.nvim", priority = 1000, config = _1_, lazy = false}, {"jackplus-xyz/binary.nvim", priority = 1000, opts = {style = "dark"}, lazy = false}}
