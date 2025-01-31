@@ -58,7 +58,7 @@
       (var File-name-block
        {:init (fn [self] (set self.filename (vim.api.nvim_buf_get_name 0)))})
 
-      (local File-name {:hl {:fg :pink}
+      (local File-name {:hl {:fg :orange}
                         :provider (fn [self]
                                     (var filename
                                          (vim.fn.fnamemodify self.filename ":."))

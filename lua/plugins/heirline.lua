@@ -40,7 +40,7 @@ local function _1_()
     end
     return filename
   end
-  File_name = {hl = {fg = "pink"}, provider = _7_}
+  File_name = {hl = {fg = "orange"}, provider = _7_}
   local File_flags
   local function _10_()
     return vim.bo.modified
