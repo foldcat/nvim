@@ -13,17 +13,24 @@
               {:globals [:vim]
               :workspace 
               {:library (vim.api.nvim_list_runtime_paths)}}}}}}}}
+       {1 :ionide/Ionide-vim}
        {1 :williamboman/mason-lspconfig.nvim
           :dependencies :williamboman/mason.nvim
           :opts 
           (fn []
            {:handlers 
              [(fn [server]
-              ((. (require :astrolsp) :lsp_setup) server))]})}]
+                (when (not= server :fsautocomplete) ; do NOT start this thing
+                  ((. (require :astrolsp) :lsp_setup) server)))]})}]
     :config 
     (fn []
       (vim.tbl_map (. (require :astrolsp) :lsp_setup)
       (. (require :astrolsp) :config :servers))
+
+      (let [astrolsp (require :astrolsp)]
+        ((. (require :ionide) :setup)
+         {:on_attach astrolsp.on_attach 
+          :capabilities astrolsp.capabilities}))
 
       (local map vim.keymap.set)
 
