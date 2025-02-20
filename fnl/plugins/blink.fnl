@@ -28,10 +28,10 @@
          :snippets 
          {:preset :luasnip}
 
+         :cmdline {:enabled false}
+
          :sources
          {:default [:lsp :path :snippets :buffer :conjure :ripgrep]
-
-          :cmdline {}
 
           :providers
           {:conjure

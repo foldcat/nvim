@@ -144,7 +144,7 @@
       (local Align {:provider "%="})
       (local Space {:provider " "})
  
-      (local statusline [Vi-mode Space File-name-block Space LSPActive Align Git Space Ruler Space Scroll-bar])
+      (local statusline [Vi-mode Space File-name-block Space LSPActive Align Git Space Ruler])
 
       (hline.setup 
         {:statusline statusline})))}

@@ -107,7 +107,7 @@ local function _1_()
   local Ruler = {provider = "%7(%l/%3L%):%2c %P"}
   local Align = {provider = "%="}
   local Space = {provider = " "}
-  local statusline = {Vi_mode, Space, File_name_block, Space, LSPActive, Align, Git, Space, Ruler, Space, Scroll_bar}
+  local statusline = {Vi_mode, Space, File_name_block, Space, LSPActive, Align, Git, Space, Ruler}
   return hline.setup({statusline = statusline})
 end
 return {"rebelot/heirline.nvim", event = "VeryLazy", config = _1_}

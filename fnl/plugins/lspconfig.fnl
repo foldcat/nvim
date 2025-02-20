@@ -30,6 +30,10 @@
       (let [astrolsp (require :astrolsp)]
         ((. (require :ionide) :setup)
          {:on_attach astrolsp.on_attach 
+          :capabilities astrolsp.capabilities})
+
+        ((. (require :lspconfig) :gleam :setup)
+         {:on_attach astrolsp.on_attach
           :capabilities astrolsp.capabilities}))
 
       (local map vim.keymap.set)

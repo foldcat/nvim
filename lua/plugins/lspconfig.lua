@@ -14,6 +14,7 @@ local function _4_()
   do
     local astrolsp = require("astrolsp")
     require("ionide").setup({on_attach = astrolsp.on_attach, capabilities = astrolsp.capabilities})
+    require("lspconfig").gleam.setup({on_attach = astrolsp.on_attach, capabilities = astrolsp.capabilities})
   end
   local map = vim.keymap.set
   map("n", "gD", vim.lsp.buf.declaration)
