@@ -1,8 +1,9 @@
 {1 :nvim-neorg/neorg
-   :lazy false
-   :version :* 
-   :config 
-   (fn []
-     (let [neorg (require :neorg)]
-       (neorg.setup
-         {})))}
+ :config 
+ (fn []
+   ((. (require :neorg) :setup) 
+    {:load {:core.concealer {}
+            :core.defaults {}
+            :core.completion {:config {:engine :nvim-cmp} }}}))
+ :lazy false
+ :version "*"}

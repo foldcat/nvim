@@ -1,6 +1,5 @@
 -- [nfnl] Compiled from fnl/plugins/neorg.fnl by https://github.com/Olical/nfnl, do not edit.
 local function _1_()
-  local neorg = require("neorg")
-  return neorg.setup({})
+  return require("neorg").setup({load = {["core.concealer"] = {}, ["core.defaults"] = {}, ["core.completion"] = {config = {engine = "nvim-cmp"}}}})
 end
-return {"nvim-neorg/neorg", version = "*", config = _1_, lazy = false}
+return {"nvim-neorg/neorg", config = _1_, version = "*", lazy = false}

@@ -31,11 +31,14 @@
          :cmdline {:enabled false}
 
          :sources
-         {:default [:lsp :path :snippets :buffer :conjure :ripgrep]
+         {:default [:lsp :path :snippets :buffer :conjure :ripgrep :neorg]
 
           :providers
           {:conjure
             {:name :conjure 
+             :module :blink.compat.source}
+           :neorg
+            {:name :neorg
              :module :blink.compat.source}
            :ripgrep
             {:module :blink-ripgrep
