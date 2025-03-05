@@ -1,7 +1,4 @@
-{1 :altermo/ultimate-autopair.nvim
+{1 :windwp/nvim-autopairs
    :enabled true
    :event :InsertEnter
-   :init 
-   (fn []
-     (let [autop (require :ultimate-autopair)]
-       (autop.setup {})))}
+   :opts {}}

@@ -9,6 +9,7 @@
        (local colors
         {:blue (. (utils.get_highlight :Function) :fg)
          :bright_bg (. (utils.get_highlight :Folded) :bg)
+         :normal_bg (. (utils.get_highlight :StatusLine) :bg)
          :bright_fg (. (utils.get_highlight :Folded) :fg)
          :cyan (. (utils.get_highlight :Special) :fg)
          :dark_red (. (utils.get_highlight :DiffDelete) :bg)
@@ -26,6 +27,7 @@
          :red (. (utils.get_highlight :DiagnosticError) :fg)})
 
        (hline.load_colors colors)
+
        (local Vi-mode 
         {:init (fn [self] (set self.mode (vim.fn.mode 1)))
          :static {:mode_colors {"\019" :purple
@@ -53,10 +55,12 @@
          :hl (fn [self]
                (local mode (self.mode:sub 1 1))
                {:bold true 
-                :fg (. self.mode_colors mode)})})
+                :fg (. self.mode_colors mode)
+                :bg :normal_bg})})
 
       (var File-name-block
-       {:init (fn [self] (set self.filename (vim.api.nvim_buf_get_name 0)))})
+       {:init (fn [self] (set self.filename (vim.api.nvim_buf_get_name 0)))
+        :hl {:bg :normal_bg}})
 
       (local File-name {:hl {:fg :orange}
                         :provider (fn [self]
@@ -70,15 +74,15 @@
                                     filename)})
 
       (local File-flags [{:condition (fn [] vim.bo.modified)
-                          :hl {:fg :green}
+                          :hl {:fg :green :bg :normal_bg}
                           :provider " [+]"}
                          {:condition (fn []
                                        (or (not vim.bo.modifiable) vim.bo.readonly))
-                          :hl {:fg :pink}
+                          :hl {:fg :pink :bg :normal_bg}
                           :provider " [x]"}])
 
       (local File-name-modifer
-             {:hl (fn [] (when vim.bo.modified {:bold true :fg :red :force true}))})
+             {:hl (fn [] (when vim.bo.modified {:bold true :fg :red :force true :bg :normal_bg}))})
 
       (set File-name-block
            (utils.insert File-name-block
@@ -86,7 +90,7 @@
                          {:provider "%<"}))
 
       (local LSPActive {:condition conditions.lsp_attached
-                        :hl {:bold true :fg :green}
+                        :hl {:bold true :fg :green :bg :normal_bg}
                         :provider (fn []
                                     (local names {})
                                     (each [_ server (pairs (vim.lsp.get_clients {:bufnr 0}))]
@@ -94,23 +98,23 @@
                                     (.. "[" (table.concat names " ") "]"))
                         :update [:LspAttach :LspDetach]})
 
-      (local Git {1 {:hl {:bold true}
+      (local Git {1 {:hl {:bold true :bg :normal_bg}
                      :provider (fn [self] self.status_dict.head)}
                   2 {:condition (fn [self] self.has_changes) :provider "("}
-                  3 {:hl {:fg :purple}
+                  3 {:hl {:fg :purple :bg :normal_bg}
                      :provider (fn [self] (local count (or self.status_dict.added 0))
                                  (and (> count 0) (.. "+" count)))}
-                  4 {:hl {:fg :red}
+                  4 {:hl {:fg :red :bg :normal_bg}
                      :provider (fn [self]
                                  (local count (or self.status_dict.removed 0))
                                  (and (> count 0) (.. "-" count)))}
-                  5 {:hl {:fg :blue}
+                  5 {:hl {:fg :blue :bg :normal_bg}
                      :provider (fn [self]
                                  (local count (or self.status_dict.changed 0))
                                  (and (> count 0) (.. "~" count)))}
                   6 {:condition (fn [self] self.has_changes) :provider ")"}
                   :condition conditions.is_git_repo
-                  :hl {:fg :orange}
+                  :hl {:fg :orange :bg :normal_bg}
                   :init (fn [self]
                           (set self.status_dict vim.b.gitsigns_status_dict)
                           (set self.has_changes

@@ -2,14 +2,44 @@
     :lazy false
     :priority 1000} 
 
- {1 :dgox16/oldworld.nvim
+ {1 :rebelot/kanagawa.nvim
+    :lazy false 
+    :priority 1000
+    :config
+    (fn []
+      (vim.cmd.colorscheme :kanagawa))}
+
+ {1 :catppuccin/nvim
+    :lazy false 
     :priority 1000 
-    :lazy false
+    
     :config 
     (fn []
-      ((. (require :oldworld) :setup)
-       {:variant :oled})
-      (vim.cmd.colorscheme :oldworld))}
+      ((. (require :catppuccin) :setup)
+        {:color_overrides {:mocha {:base "#000000"
+                                  :crust "#000000"
+                                  :mantle "#000000"}}
+        :integrations {:telescope {:enabled true :style :nvchad}}
+        :no_italic true
+        :flavour :mocha
+        :styles {:booleans {}
+                 :comments {}
+                 :conditionals {}
+                 :functions {}
+                 :keywords {}
+                 :loops {}
+                 :numbers {}
+                 :properties {}
+                 :strings {}
+                 :types {}
+                 :variables {}}
+        :term_colors true
+        :transparent_background false})
+      (vim.cmd.colorscheme :catppuccin))}
+
+ {1 :dgox16/oldworld.nvim
+    :priority 1000 
+    :lazy false}
 
  {1 :drewxs/ash.nvim
     :lazy false 
