@@ -1,3 +1,3 @@
 {1 :luiscassih/AniMotion.nvim
    :event :VeryLazy
-   :opts {}}
+   :opts {:edit_keys [:c :d :r :y]}}

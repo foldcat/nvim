@@ -1,6 +1,6 @@
 {1 :rachartier/tiny-inline-diagnostic.nvim
-   :enabled false
-   :event :LspAttach
+   :enabled true
+   :event :VeryLazy
    :priority 1000
    :config 
    (fn []

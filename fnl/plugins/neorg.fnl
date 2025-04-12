@@ -5,5 +5,5 @@
     {:load {:core.concealer {}
             :core.defaults {}
             :core.completion {:config {:engine :nvim-cmp} }}}))
- :lazy false
+ :ft :norg
  :version "*"}

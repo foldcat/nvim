@@ -1,3 +1,3 @@
-{1 :kylechui/nvim-surround
-   :event :VeryLazy 
+{1 :echasnovski/mini.surround
+   :lazy false
    :opts {}}

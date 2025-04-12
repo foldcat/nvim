@@ -22,7 +22,9 @@
          :completion {:ghost_text {:enabled true}
                       :menu 
                       {:draw 
-                        {:columns [{1 :label 2 :label_description :gap 1}
+                       {:columns [{1 :label 
+                                   2 :label_description 
+                                   :gap 1}
                                    [:kind]]}}}
 
          :snippets 

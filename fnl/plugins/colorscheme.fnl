@@ -6,6 +6,10 @@
     :lazy false 
     :priority 1000}
 
+ {1 :Shatur/neovim-ayu
+    :lazy false 
+    :priority 1000}
+
  {1 :catppuccin/nvim
     :lazy false 
     :priority 1000 

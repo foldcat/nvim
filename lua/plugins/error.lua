@@ -4,4 +4,4 @@ local function _1_()
   vim.diagnostic.config({virtual_text = false})
   return tid.setup({virt_texts = {priority = 99999}})
 end
-return {"rachartier/tiny-inline-diagnostic.nvim", event = "LspAttach", priority = 1000, config = _1_, enabled = false}
+return {"rachartier/tiny-inline-diagnostic.nvim", enabled = true, event = "VeryLazy", priority = 1000, config = _1_}

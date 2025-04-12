@@ -2,4 +2,4 @@
 local function _1_()
   return require("neorg").setup({load = {["core.concealer"] = {}, ["core.defaults"] = {}, ["core.completion"] = {config = {engine = "nvim-cmp"}}}})
 end
-return {"nvim-neorg/neorg", config = _1_, version = "*", lazy = false}
+return {"nvim-neorg/neorg", config = _1_, ft = "norg", version = "*"}
